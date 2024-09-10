@@ -1,0 +1,34 @@
+#!/bin/sh
+
+#echo "$1"
+#echo "$2"
+
+if [ -z $2 ]
+then
+	echo "Two arguments need to be provided"
+	exit 1
+fi
+
+filesdir=$1
+searchstr=$2
+
+if ! [ -d ${filesdir} ]
+then
+	echo "First argument is not a directory"
+	exit 1
+fi
+
+allfiles=(${filesdir}/*)
+numfiles=${#allfiles[@]}
+matching_lines=$(grep -F -r ${searchstr} ${allfiles[@]} | wc -l)
+
+#echo ${allfiles[@]}
+#echo ${allfiles}
+#echo ${numfiles}
+#echo $(grep ${searchstr} ${allfiles})
+#echo ${allfiles}
+#echo $(grep -F -r ${searchstr} ${allfiles[@]})
+
+echo "The number of files are ${numfiles} and the number of matching lines are ${matching_lines}"
+
+
