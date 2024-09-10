@@ -1,8 +1,5 @@
 #!/bin/sh
 
-#echo "$1"
-#echo "$2"
-
 if [ -z $2 ]
 then
 	echo "Two arguments need to be provided"
@@ -21,13 +18,6 @@ fi
 allfiles=(${filesdir}/*)
 numfiles=${#allfiles[@]}
 matching_lines=$(grep -F -r ${searchstr} ${allfiles[@]} | wc -l)
-
-#echo ${allfiles[@]}
-#echo ${allfiles}
-#echo ${numfiles}
-#echo $(grep ${searchstr} ${allfiles})
-#echo ${allfiles}
-#echo $(grep -F -r ${searchstr} ${allfiles[@]})
 
 echo "The number of files are ${numfiles} and the number of matching lines are ${matching_lines}"
 
