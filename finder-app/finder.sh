@@ -17,7 +17,7 @@ fi
 
 allfiles=${filesdir}/*
 numfiles=$(ls -1q ${allfiles} | wc -l)
-matching_lines=$(grep -F -r ${searchstr} ${allfiles[@]} | wc -l)
+matching_lines=$(grep -F -r ${searchstr} ${allfiles} | wc -l)
 
 echo "The number of files are ${numfiles} and the number of matching lines are ${matching_lines}"
 
